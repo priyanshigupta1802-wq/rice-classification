@@ -1,0 +1,40 @@
+Loading model...
+Input shape: (None, 128, 128, 3)
+Output shape: (None, 5)
+
+============================================================
+TEST 1: Using /255.0 normalization (training method)
+============================================================
+
+True: Arborio -> Predictions: {'Arborio': 10}
+  Scores: Arborio:98.9%, Basmati:0.0%, Ipsala:0.0%, Jasmine:0.0%, Karacadag:1.1%
+
+True: Basmati -> Predictions: {'Basmati': 10}
+  Scores: Arborio:0.0%, Basmati:100.0%, Ipsala:0.0%, Jasmine:0.0%, Karacadag:0.0%
+
+True: Ipsala -> Predictions: {'Ipsala': 10}
+  Scores: Arborio:0.0%, Basmati:0.0%, Ipsala:100.0%, Jasmine:0.0%, Karacadag:0.0%
+
+True: Jasmine -> Predictions: {'Jasmine': 10}
+  Scores: Arborio:0.2%, Basmati:13.5%, Ipsala:0.0%, Jasmine:86.3%, Karacadag:0.0%
+
+True: Karacadag -> Predictions: {'Karacadag': 10}
+  Scores: Arborio:0.0%, Basmati:0.0%, Ipsala:0.0%, Jasmine:0.0%, Karacadag:100.0%
+
+Accuracy (/255): 50/50 = 100.0%
+
+============================================================
+TEST 2: Using preprocess_input [-1,1]
+============================================================
+
+True: Arborio -> Predictions: {'Karacadag': 6, 'Arborio': 4}
+
+True: Basmati -> Predictions: {'Basmati': 8, 'Jasmine': 1, 'Karacadag': 1}
+
+True: Ipsala -> Predictions: {'Ipsala': 9, 'Jasmine': 1}
+
+True: Jasmine -> Predictions: {'Jasmine': 9, 'Basmati': 1}
+
+True: Karacadag -> Predictions: {'Karacadag': 10}
+
+Accuracy (preprocess_input): 40/50 = 80.0%
